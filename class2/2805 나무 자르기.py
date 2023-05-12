@@ -11,7 +11,7 @@ while start <= end:
 
     for i in h:
         if i >= mid:
-            total += i - mid
+            total += i - mid  # 자르고 남은 길이
 
     if total >= m:
         start = mid + 1
