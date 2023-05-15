@@ -3,7 +3,7 @@ n, m = map(int, sys.stdin.readline().split())
 h = list(map(int, sys.stdin.readline().split()))
 
 start = 0
-end = max(h)
+end = max(h)  # 가장 큰 나무
 
 while start <= end:
     mid = (start + end) // 2
