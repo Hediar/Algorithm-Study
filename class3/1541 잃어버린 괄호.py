@@ -12,4 +12,4 @@ for i in num[0].split('+'):  # 배열의 첫번째는 더하기만 있다.
 for i in num[1:]:  # 뒷 부분은 다 빼주면 된다.
     for j in i.split('+'):
         result -= int(j)
-print(result)
+    print(result)
