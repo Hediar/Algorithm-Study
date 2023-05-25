@@ -1,4 +1,5 @@
 import sys
+from collections import deque
 n = int(sys.stdin.readline())
 # push_front X -> 입력
 # push_back X
@@ -12,18 +13,25 @@ n = int(sys.stdin.readline())
 
 class DeQueue:
     def __init__(self):
-        self.dequeue = []
+        self.dequeue = deque()
+
+    def push_front(self, a):
+        self.dequeue.appendleft(a)
 
     def push_back(self, a):
         self.dequeue.append(a)
 
-    def push_front(self, a):
-        self.dequeue
-
-    def pop(self):
+    def pop_front(self):
         if self.dequeue:
             print(self.dequeue[0])
-            del self.dequeue[0]
+            self.dequeue.popleft()
+        else:
+            print(-1)
+
+    def pop_back(self):
+        if self.dequeue:
+            print(self.dequeue[-1])
+            self.dequeue.pop()
         else:
             print(-1)
 
@@ -52,11 +60,15 @@ class DeQueue:
 myDeQueue = DeQueue()
 for _ in range(n):
     command = sys.stdin.readline().split()
-    if command[0] == 'push':
-        myDeQueue.push(int(command[1]))
+    if command[0] == 'push_front':
+        myDeQueue.push_front(int(command[1]))
+    if command[0] == 'push_back':
+        myDeQueue.push_back(int(command[1]))
 
-    if command[0] == 'pop':
-        myDeQueue.pop()
+    if command[0] == 'pop_front':
+        myDeQueue.pop_front()
+    if command[0] == 'pop_back':
+        myDeQueue.pop_back()
 
     if command[0] == 'size':
         myDeQueue.size()
