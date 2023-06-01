@@ -1,3 +1,5 @@
+"""
+
 import sys
 
 # 입력 구간
@@ -32,37 +34,39 @@ for v in range(min_h, max_h + 1):
             res[1] = v  # 최소시간일 때의 현재 높이
 
 print(*res)  # 각 요소를 공백으로 구분하여 출력
-
-""" 시간 빠른 코드 
+"""
+# 시간 빠른 코드
 import sys
 
 input = sys.stdin.readline
-
+# 입력구간
 N, M, B = map(int, input().split())
-MAT = []
-HEIS = [0 for _ in range(257)]
+
+ground = []
+HEIS = [0 for _ in range(257)]  # 높이의 빈도 0 ~ 256
+
 for n in range(N):
-    T = list(map(int, input().split()))
+    T = list(map(int, input().split()))  # 한 줄씩 입력받는 것
     for m in range(M):
         HEIS[T[m]] += 1
-    MAT.append(T)
+    ground.append(T)
 
-m_res, h_res = float('inf'), 0
+# 동작 구간
+m_res, h_res = 1e9, 0  # 최소시간, 해당 높이
 for h in range(257):
-    p = 0
-    m = 0
+    up = 0
+    down = 0
     for b in range(257):
         if h > b:
-            p += (h - b) * HEIS[b]
+            up += (h - b) * HEIS[b]
         else:
-            m += (b - h) * HEIS[b]
-    inven = B + m - p
+            down += (b - h) * HEIS[b]
+    inven = B + down - up
     if inven < 0:
         continue
-    t = m * 2 + p
+    t = down * 2 + up
     if t <= m_res:
         m_res = t
         h_res = h
 
 print(m_res, h_res)
-"""
