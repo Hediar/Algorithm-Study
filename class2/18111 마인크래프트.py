@@ -57,12 +57,12 @@ for h in range(257):
     up = 0
     down = 0
     for b in range(257):
-        if h > b:
-            up += (h - b) * HEIS[b]
+        if h > b:  # 현재 높이(h)가 블록의 높이(b) 비교
+            up += (h - b) * HEIS[b]  # 쌓아야 하는 정도 * 빈도수
         else:
             down += (b - h) * HEIS[b]
     inven = B + down - up
-    if inven < 0:
+    if inven < 0:  # 가지고 있는 블록의 개수 확인
         continue
     t = down * 2 + up
     if t <= m_res:
