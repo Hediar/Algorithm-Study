@@ -17,7 +17,7 @@ for _ in range(m):
     a, b = map(int, input().split())
     g[a].append(b)
     g[b].append(a)
-# 서로 연관이 있으니 index는 value들과 연결되어 있다!
+
 visited = [False for _ in range(n+1)]
 result = []
 
