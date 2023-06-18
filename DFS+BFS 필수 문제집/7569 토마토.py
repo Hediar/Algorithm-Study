@@ -21,7 +21,7 @@ M, N, H = map(int, input().split())
 
 tomato = [[list(map(int, input().split())) for _ in range(N)]
           for _ in range(H)]
-visited = [[[False] * M for _ in range(N)] for _ in range(H)]
+# visited = [[[False] * M for _ in range(N)] for _ in range(H)]
 
 q = deque()
 
@@ -45,18 +45,18 @@ def bfs():
             if nx < 0 or nx >= H or ny < 0 or ny >= N or nz < 0 or nz >= M:
                 continue
 
-            if tomato[nx][ny][nz] == 0 and visited[nx][ny][nz] == False:
+            if tomato[nx][ny][nz] == 0:
                 q.append((nx, ny, nz))
                 tomato[nx][ny][nz] = tomato[x][y][z] + 1
-                visited[nx][ny][nz] = True
+                # visited[nx][ny][nz] = True
 
 
 for a in range(H):
     for b in range(N):
         for c in range(M):
-            if tomato[a][b][c] == 1 and visited[a][b][c] == 0:
+            if tomato[a][b][c] == 1:
                 q.append((a, b, c))
-                visited[a][b][c] = True
+                # visited[a][b][c] = True
             elif tomato[a][b][c] == 0:  # 하나라도 안익은게 있다면
                 alltomato = False
 bfs()
