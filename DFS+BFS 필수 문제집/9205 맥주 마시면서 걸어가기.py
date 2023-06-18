@@ -30,7 +30,7 @@ def bfs():
         for i in range(n):
             if not visited[i]:
                 n_x, n_y = g[i]
-                if abs(n_x - x) + abs(y-n_y) <= 1000:
+                if abs(n_x - x) + abs(y-n_y) <= 1000:  # 현재 위치와 편의점 사이의 거리
                     visited[i] = 1
                     q.append((n_x, n_y))
     print("sad")
