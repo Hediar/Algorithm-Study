@@ -2,7 +2,7 @@ import sys
 import heapq
 
 input = sys.stdin.readline
-n = int(sys.stdin.readline())
+n = int(input())
 
 max_heap = []
 
